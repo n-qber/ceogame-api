@@ -1,19 +1,38 @@
 from API import API
+from utils import *
 import requests
 
 
 class CeogameAPI:
 
-    def __init__(self, email, password=""):
+    def __init__(self, email):
         self.session = requests.Session()
-        self.session.headers["Authorization"] = "Bearer YOUR_TOKEN"
         self.session.headers["Host"] = "api.ceogame.com.br"
         self.session.headers["User-Agent"] = "okhttp/3.12.6"
         self.session.headers["Content-Type"] = "text/plain; charset=utf-8"
 
         self.email = email
 
-    def login(self, email, senha):
+    def login(self, senha: str = ""):
+
+        # Tries to find stored token for given email
+        try:
+            token_object = read_tokens(self.email)
+
+            # Check if any information got here or if error occurred
+            if token_object:
+                self.session.headers["Authorization"] = "Bearer " + token_object.get("access_token")
+                return
+
+        except AssertionError as exception:
+            # No token for given email
+
+            # If the password was not provided, raise exception
+            if not senha:
+                raise exception
+
+            # If it was provided, continue running code
+
         data = {
             "email": self.email,
             "senha": senha
@@ -21,10 +40,18 @@ class CeogameAPI:
 
         # To login, you need a token which is weird, I'm not putting the token here yet
         # because I don't know what information it contains, tldr not showing for security reasons :)
-        self.session.headers["Authorization"] = "Basic ANOTHER_TOKEN"
+        self.session.headers["Authorization"] = "Basic MEFCN1kyOFhFdmJRY25YcEVaNGo5UHRxekZMYzJ0bTJWM0tCWGpUTzFWNzA0PTpKb3BSSDA1M2I3T2d3MTdZeGFzbWg3T2c9PQ=="
         response = self.session.post(API.LOGIN, json=data)
+
+        assert response.status_code != 400, "Veja se o email e a senha estão corretos!"
+
         if response.status_code == 200:
-            self.session.headers["Authorization"] = "Bearer " + response.json().get("access_token", "")
+            access_token = response.json().get("access_token", "")
+            refresh_token = response.json().get("refresh_token", "")
+
+            write_tokens(self.email, access_token=access_token, refresh_token=refresh_token)
+
+            self.session.headers["Authorization"] = "Bearer " + access_token
 
         return response
 
