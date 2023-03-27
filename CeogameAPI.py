@@ -55,30 +55,6 @@ class CeogameAPI:
 
         return response
 
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_empresa_financeiro(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_FINANCEIRO, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
     def get_personagens(self):
 
         data = {
@@ -89,14 +65,6 @@ class CeogameAPI:
         if response.status_code == 200:
             return response.json()
         return {}
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
 
     def pagar_tipo_conta_empresa_assistente(self, id_empresa, rodada_vencto, contas_selecionadas):
 
@@ -133,117 +101,6 @@ class CeogameAPI:
 
         return self.session.post(API.GET_RANKINGS_PERSONAGENS.format("patrimonio"), json=data).json()
 
-    def get_empresa_contas_apagar_assistente(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_CONTAS_APAGAR_ASSISTENTE, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_empresa_contas_apagar(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_CONTAS_APAGAR, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_empresa_ultimos_relatorios_venda(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_ULTIMOS_RELATORIOS_VENDA, json=data).json()
-
-    def transferir_dinheiro_empresa(self):
-
-        data = {
-            "email": self.email,
-            "valor": 123.0,
-            "tipo_transferencia": "R"
-        }
-
-        return self.session.post(API.TRANSFERIR_DINHEIRO_EMPRESA, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_rankings_personagens(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_RANKINGS_PERSONAGENS, json=data).json()
-
     def get_email_relatorio_venda(self):
 
         data = {
@@ -251,22 +108,6 @@ class CeogameAPI:
         }
 
         return self.session.post(API.GET_EMAIL_RELATORIO_VENDA, json=data).json()
-
-    def get_empresa_contas_apagar(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_CONTAS_APAGAR, json=data).json()
-
-    def get_empresa_contas_apagar_assistente(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_CONTAS_APAGAR_ASSISTENTE, json=data).json()
 
     def get_personagem_propriedades(self):
 
@@ -276,39 +117,6 @@ class CeogameAPI:
 
         return self.session.post(API.GET_PERSONAGEM_PROPRIEDADES, json=data).json()
 
-    def get_empresa_financeiro(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_FINANCEIRO, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
     def get_personagem_alertas(self):
 
         data = {
@@ -316,71 +124,6 @@ class CeogameAPI:
         }
 
         return self.session.post(API.GET_PERSONAGEM_ALERTAS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_empresa_ultimas_atividades(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_ULTIMAS_ATIVIDADES, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_email_relatorio_venda(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMAIL_RELATORIO_VENDA, json=data).json()
-
-    def get_personagem_emails(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_EMAILS, json=data).json()
-
-    def get_empresa_contas_apagar(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_CONTAS_APAGAR, json=data).json()
 
     def get_empresa_saque_programado(self):
 
@@ -398,90 +141,6 @@ class CeogameAPI:
 
         return self.session.post(API.GET_EMPRESA_ULTIMAS_ATIVIDADES, json=data).json()
 
-    def get_personagem_emails(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_EMAILS, json=data).json()
-
-    def get_personagem_redes_empresas(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_REDES_EMPRESAS, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_personagem_emails(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_PERSONAGEM_EMAILS, json=data).json()
-
-    def get_empresa_financeiro(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_FINANCEIRO, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
-
     def get_novidades(self):
 
         data = {
@@ -489,23 +148,6 @@ class CeogameAPI:
         }
 
         return self.session.post(API.GET_NOVIDADES, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
 
     def transferir_dinheiro_empresa(self):
 
@@ -516,15 +158,6 @@ class CeogameAPI:
         }
 
         return self.session.post(API.TRANSFERIR_DINHEIRO_EMPRESA, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
 
     def get_personagem_redes_empresas(self):
 
@@ -549,39 +182,6 @@ class CeogameAPI:
         }
 
         return self.session.post(API.GET_EMPRESA_ULTIMOS_RELATORIOS_VENDA, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_empresa_financeiro(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_FINANCEIRO, json=data).json()
-
-    def get_empresa_modulos(self):
-
-        data = {
-            "email": self.email
-        }
-
-        return self.session.post(API.GET_EMPRESA_MODULOS, json=data).json()
-
-    def get_dados_personagem(self):
-
-        data = {
-            "email": self.email,
-            "is_compat_ironsource": 1
-        }
-
-        return self.session.post(API.GET_DADOS_PERSONAGEM, json=data).json()
 
     def get_dados_personagem(self, id_personagem):
 
