@@ -116,13 +116,22 @@ class CeogameAPI:
 
         return self.session.post(API.GET_RANKING_PERSONAGEM_INFO.format(id_personagem), json=data).json()
 
-    def get_rankings_personagens(self):
+    def get_rankings_personagens_dinheiro(self):
 
         data = {
             "email": self.email
         }
 
-        return self.session.post(API.GET_RANKINGS_PERSONAGENS, json=data).json()
+        return self.session.post(API.GET_RANKINGS_PERSONAGENS.format("dinheiro"), json=data).json()
+
+    def get_rankings_personagens_patrimonio(self):
+        # Opcao pode ser dinheiro ou patrimonio
+
+        data = {
+            "email": self.email
+        }
+
+        return self.session.post(API.GET_RANKINGS_PERSONAGENS.format("patrimonio"), json=data).json()
 
     def get_empresa_contas_apagar_assistente(self):
 
