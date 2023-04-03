@@ -149,15 +149,25 @@ class CeogameAPI:
 
         return self.session.post(API.GET_NOVIDADES, json=data).json()
 
-    def transferir_dinheiro_empresa(self):
+    def transferir_dinheiro_empresa_deposito(self, id_empresa, valor):
 
         data = {
             "email": self.email,
-            "valor": 456.0,
+            "valor": valor,
             "tipo_transferencia": "D"
         }
 
-        return self.session.post(API.TRANSFERIR_DINHEIRO_EMPRESA, json=data).json()
+        return self.session.post(API.TRANSFERIR_DINHEIRO_EMPRESA.format(id_empresa), json=data).json()
+
+    def transferir_dinheiro_empresa_retirada(self, id_empresa, valor):
+
+        data = {
+            "email": self.email,
+            "valor": valor,
+            "tipo_transferencia": "R"
+        }
+
+        return self.session.post(API.TRANSFERIR_DINHEIRO_EMPRESA.format(id_empresa), json=data).json()
 
     def get_personagem_redes_empresas(self):
 
